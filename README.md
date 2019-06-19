@@ -6,6 +6,8 @@ Collection of Leaflet bundles to start building web maps with a proper npm modul
 - [leaflet-rollup](https://github.com/Raruto/leaflet-bundles/tree/leaflet-rollup)
 - [leaflet-webpack](https://github.com/Raruto/leaflet-bundles/tree/leaflet-webpack)
 
+3. **Update project dependecies running the `npm run update` command**
+
 2. **Develop your Leaflet Map within the respective `/src` folder**
 
 3. **Pack your application running the `npm run build` command**
