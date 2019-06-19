@@ -1,12 +1,16 @@
 # leaflet-bundles
 Collection of Leaflet bundles to start building web maps with a proper npm module loader (browserify, rollup or webpack)
 
-**Start cloning a branch:**
+1. **Start cloning a branch:**
 - [leaflet-browserify](https://github.com/Raruto/leaflet-bundles/tree/leaflet-browserify)
 - [leaflet-rollup](https://github.com/Raruto/leaflet-bundles/tree/leaflet-rollup)
 - [leaflet-webpack](https://github.com/Raruto/leaflet-bundles/tree/leaflet-webpack)
 
-_TIP: you can already see a generated demo bundle opening the **/dist/index.html** file, within their respective git branch_
+2. **Develop your Leaflet Map within the respective `/src` folder**
+
+3. **Pack your application running the `npm run build` command**
+
+4. **See the generated results opening the /dist/index.html file**_
 
 ---
 
