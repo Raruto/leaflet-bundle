@@ -10,7 +10,7 @@ Collection of Leaflet bundles to start building web maps with a proper npm modul
 
 3. **Pack your application running the `npm run build` command**
 
-4. **See the generated results opening the /dist/index.html file**_
+4. **See the generated results opening the /dist/index.html file**
 
 ---
 
