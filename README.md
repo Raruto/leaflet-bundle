@@ -12,9 +12,9 @@ _TIP: you can already see a generated demo bundle opening the **/dist/index.html
 
 **List of useful npm commands**
 
-- `npm update` - download/update npm package dependecies
-- `npm i <package_name> [--s]/[--D]` - add a npm package dependency (alias for: `npm install <package_name> [--save]/[--save-dev]`)
-- `npm r <package_name> [--s]/[--D]` - add a npm package dependency (alias for: `npm remove <package_name> [--save]/[--save-dev]`)
-- `npm run build` - run build script (from package.json)
-- `npm run watch` - run watch script (from package.json)
-- `npm start` - run start command (from package.json)
+- `npm update` - _download/update npm package dependecies_
+- `npm i <package_name> [--s]/[--D]` - _add package/dependency (alias for: `npm install <package_name> [--save]/[--save-dev]`)_
+- `npm r <package_name> [--s]/[--D]` - _remove package/dependency (alias for: `npm remove <package_name> [--save]/[--save-dev]`)_
+- `npm run build` - _run build script (from package.json)_
+- `npm run watch` - _run watch script (from package.json)_
+- `npm start` - _run start command (from package.json)_
