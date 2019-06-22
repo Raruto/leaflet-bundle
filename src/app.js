@@ -161,7 +161,7 @@ function initMap() {
   }
 
   function updateLeafletAttribution(e) {
-    map.attributionControl.setPrefix((e.name == "Satellite" || e.name == "Terrain") ? false : leafletAttribution);
+    map.attributionControl.setPrefix((e && e.layer && e.layer instanceof L.GridLayer.GoogleMutant) ? false : leafletAttribution);
   }
 
 }
