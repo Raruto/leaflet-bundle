@@ -1,4 +1,4 @@
-# leaflet-npm
+# leaflet-npm bundles
 Collection of Leaflet bundles to start building web maps with a proper npm module loader (browserify, rollup or webpack)
 
 1. **Start cloning a branch:**
