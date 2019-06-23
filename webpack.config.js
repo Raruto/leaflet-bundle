@@ -1,4 +1,6 @@
 const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 
 module.exports = {
@@ -9,14 +11,18 @@ module.exports = {
   },
   mode: 'production',
   //mode: 'development',
-  plugins: [],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css',
+    })
+  ],
   performance: {
     hints: false,
   },
   module: {
     rules: [{
       test: /\.css$/i,
-      use: ['style-loader', 'css-loader'],
+      use: [/*'style-loader',*/ MiniCssExtractPlugin.loader, 'css-loader'],
     }, {
       test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
       loader: 'file-loader',
@@ -41,6 +47,7 @@ module.exports = {
           }
         },
       }),
+      new OptimizeCSSAssetsPlugin({}),
     ],
   },
 };

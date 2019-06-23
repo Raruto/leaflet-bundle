@@ -1,7 +1,3 @@
-import "leaflet-pegman/leaflet-pegman.css";
-import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
-import "leaflet.fullscreen/Control.FullScreen.css";
-import '@raruto/leaflet-gesture-handling/dist/leaflet-gesture-handling.css';
 import css from './app.css';
 
 import * as G from 'google-maps'; // async
