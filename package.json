@@ -29,7 +29,7 @@
     "google-maps": "^3.3.0",
     "interactjs": "^1.4.11",
     "jszip": "^3.2.1",
-    "leaflet-gesture-handling": "^1.1.8",
+    "leaflet-control-layers-inline": "0.0.2",
     "leaflet-hash": "^0.2.1",
     "leaflet-kmz": "^0.2.2",
     "leaflet-pegman": "^0.0.8",

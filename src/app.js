@@ -10,6 +10,7 @@
 
     import 'leaflet-hash';
     import "@raruto/leaflet-gesture-handling";
+    import "leaflet-control-layers-inline";
     import 'leaflet.gridLayer.googleMutant';
     import 'leaflet.locatecontrol';
     import 'leaflet.fullscreen';
@@ -77,7 +78,7 @@
         };
 
         controls.baseLayers = new L.Control.Layers(baseMaps, null, {
-          collapsed: false,
+          inline: true,
           position: 'topleft'
         });
 
@@ -112,17 +113,8 @@
           position: 'topleft',
         });
 
-        map.on('enterFullscreen', function() {
-          map.gestureHandling.disable();
-        });
-
-        map.on('exitFullscreen', function() {
-          map.gestureHandling.enable();
-        });
-
         var leafletAttribution = map.attributionControl.options.prefix;
         map.on('baselayerchange', updateLeafletAttribution);
-        map.on('baselayerchange', updateBaseLayers);
 
         for (var i in controls) {
           if (controls[i].addTo) {
@@ -153,22 +145,6 @@
           name: "ON / OFF"
         });
         kmzParser.load('regions.kmz');
-
-        function updateBaseLayers(e) {
-          L.DomUtil.addClass(controls.baseLayers._container, "inline-control-layers");
-
-          var inputs = controls.baseLayers._layerControlInputs;
-          for (var i = 0; i < inputs.length; i++) {
-            var span = inputs[i].nextElementSibling;
-            if (inputs[i].checked) {
-              span.style.fontWeight = 700;
-              span.style.color = "";
-            } else {
-              span.style.fontWeight = "";
-              span.style.color = "#565656";
-            }
-          }
-        }
 
         function updateLeafletAttribution(e) {
           map.attributionControl.setPrefix((e && e.layer && e.layer instanceof L.GridLayer.GoogleMutant) ? false : leafletAttribution);
