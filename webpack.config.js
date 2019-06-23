@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   mode: 'production',
-  //mode: 'development',
+  // mode: 'development',
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'bundle.css',

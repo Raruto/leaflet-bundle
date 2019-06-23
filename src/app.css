@@ -2,6 +2,7 @@
 @import url("../node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.css");
 @import url("../node_modules/leaflet.fullscreen/Control.FullScreen.css");
 @import url("../node_modules/@raruto/leaflet-gesture-handling/dist/leaflet-gesture-handling.css");
+@import url("../node_modules/leaflet-control-layers-inline/leaflet-control-layers-inline.css");
 
 body,
 html {
@@ -61,32 +62,10 @@ html {
   box-sizing: content-box;
 }
 
-.leaflet-control-layers.leaflet-control:not(.inline-control-layers) {
+.leaflet-control-layers.leaflet-control {
   display: inline-block;
   float: none;
   clear: none;
-}
-
-.leaflet-control-layers-base {
-  margin: 0;
-  padding: 0;
-}
-
-.leaflet-control-layers-base input {
-  display: none;
-}
-
-.leaflet-control-layers-base span {
-  display: inline-block;
-  padding: 9.5px;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.leaflet-control-layers-base label {
-  display: inline-block;
-  cursor: pointer !important;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 4px -1px;
 }
 
 .leaflet-control-locate a .fa-map-marker::before {
@@ -102,7 +81,7 @@ html {
 
 .leaflet-left .leaflet-control.opacity-control {
   margin: 12.5px 10px;
-  vertical-align: text-top;
+  vertical-align: middle;
 }
 
 .leaflet-right .opacity-control.leaflet-control {
@@ -110,10 +89,6 @@ html {
   margin: 10px 5.5px;
 }
 
-.inline-control-layers {
-  margin: 0;
-  padding: 0;
-}
 
 .post-content .leaflet-control a:hover {
   background: #FFF;

@@ -13,6 +13,7 @@ import 'leaflet.fullscreen';
 import 'leaflet-pegman';
 import 'leaflet-transparency';
 import '@raruto/leaflet-gesture-handling';
+import 'leaflet-control-layers-inline';
 import 'leaflet-kmz';
 
 window.JSZip = JSZip;
@@ -71,7 +72,7 @@ function initMap() {
   };
 
   controls.baseLayers = new L.Control.Layers(baseMaps, null, {
-    collapsed: false,
+    inline: true,
     position: 'topleft'
   });
 
@@ -108,7 +109,6 @@ function initMap() {
 
   var leafletAttribution = map.attributionControl.options.prefix;
   map.on('baselayerchange', updateLeafletAttribution);
-  map.on('baselayerchange', updateBaseLayers);
 
   for (var i in controls) {
     if (controls[i].addTo) {
@@ -139,22 +139,6 @@ function initMap() {
     name: "ON / OFF"
   });
   kmzParser.load('regions.kmz');
-
-  function updateBaseLayers(e) {
-    L.DomUtil.addClass(controls.baseLayers._container, "inline-control-layers");
-
-    var inputs = controls.baseLayers._layerControlInputs;
-    for (var i = 0; i < inputs.length; i++) {
-      var span = inputs[i].nextElementSibling;
-      if (inputs[i].checked) {
-        span.style.fontWeight = 700;
-        span.style.color = "";
-      } else {
-        span.style.fontWeight = "";
-        span.style.color = "#565656";
-      }
-    }
-  }
 
   function updateLeafletAttribution(e) {
     map.attributionControl.setPrefix((e && e.layer && e.layer instanceof L.GridLayer.GoogleMutant) ? false : leafletAttribution);
