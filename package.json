@@ -16,7 +16,7 @@
   "dependencies": {
     "leaflet-ui": "^0.0.2",
     "leaflet-hash": "^0.2.1",
-    "leaflet-kmz": "^0.2.4",
+    "leaflet-kmz": "^0.2.6",
     "leaflet-transparency": "^0.0.3"
   },
   "devDependencies": {
