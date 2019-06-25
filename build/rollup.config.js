@@ -23,7 +23,7 @@ let output = {
 let plugins = [
   replace({
     include: path.join(__dirname, './../node_modules/leaflet-kmz/**'),
-    "import JSZip from": "import"
+    "import JSZip from": "import" // fixes undefined JSZip mixed import (CommonJS file)
   }),
   alias({
     'jszip': path.join(__dirname, './../node_modules/jszip/dist/jszip.min.js'),
