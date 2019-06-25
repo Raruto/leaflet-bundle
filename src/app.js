@@ -1,4 +1,6 @@
-    import './app.css';
+    // import './app.css';
+
+    import 'leaflet-transparency';
 
     import 'leaflet-ui';
     import 'leaflet-hash';

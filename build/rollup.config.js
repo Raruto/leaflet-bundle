@@ -3,11 +3,14 @@ import {
 } from "rollup-plugin-terser";
 import resolve from 'rollup-plugin-node-resolve';
 import commonJS from 'rollup-plugin-commonjs';
+import postcss from 'rollup-plugin-postcss';
+import postcssImport from 'postcss-import';
+import postcssCopy from 'postcss-copy';
 import alias from 'rollup-plugin-alias';
-import css from 'rollup-plugin-css-only';
 
-// const replace = require('rollup-plugin-replace');
+
 let plugin = require('../package.json');
+let path = require('path');
 
 let input = "src/app.js";
 let output = {
@@ -17,37 +20,21 @@ let output = {
   name: 'app',
 };
 
-let external = ['leaflet'];
 let plugins = [
   alias({
-    'jszip': './../node_modules/jszip/dist/jszip.min.js', // TODO: add { "module": "./dist/jszip.js" } in their package.json
-    // 'leaflet-gesture-handling': './../node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.js',
-    'leaflet-kmz': './../node_modules/leaflet-kmz/dist/leaflet-kmz-src.js'
+    'jszip': path.join(__dirname, './../node_modules/jszip/dist/jszip.min.js'),
+    // 'leaflet-kmz': path.join(__dirname, './../node_modules/leaflet-kmz/dist/leaflet-kmz-src.js'),
   }),
-  // replace({
-  //   include: './../node_modules/leaflet-gesture-handling/dist/leaflet-gesture-handling.js',
-  //   values: {
-  //     'global': 'window'
-  //   }
-  // }),
   resolve(),
   commonJS({
-    include: './../node_modules/**'
-  }),
-  css({
-    output: 'dist/bundle.css'
-  }),
+    include: '../node_modules/**',
+  })
 ];
-// let moduleContext = {
-//   [require.resolve('leaflet-gesture-handling')]: 'window'
-// };
 
 export default [{
     input: input,
     output: output,
     plugins: plugins,
-    external: external,
-    // moduleContext: moduleContext
   },
   {
     input: input,
@@ -55,7 +42,33 @@ export default [{
       file: "dist/bundle.js"
     }),
     plugins: plugins.concat(terser()),
-    external: external,
-    // moduleContext: moduleContext
+  },
+  {
+    input: 'src/app.css',
+    output: {
+      file: 'dist/bundle.css',
+      format: 'es'
+    },
+    plugins: [
+      postcss({
+        extract: true,
+        inject: false,
+        minimize: true,
+        plugins: [
+          postcssImport({}),
+          postcssCopy({
+            basePath: 'node_modules',
+            dest: "dist",
+            template: "images/[path][name].[ext]",
+          })
+          // postcss_url(),
+          // postcss_url({
+          //      url: "copy",
+          //      basePath: path.resolve("."),
+          //      assetPath: "resources"
+          // })
+        ]
+      })
+    ]
   },
 ];
