@@ -7,7 +7,7 @@ import postcss from 'rollup-plugin-postcss';
 import postcssImport from 'postcss-import';
 import postcssCopy from 'postcss-copy';
 import alias from 'rollup-plugin-alias';
-
+import replace from 'rollup-plugin-replace';
 
 let plugin = require('../package.json');
 let path = require('path');
@@ -21,6 +21,10 @@ let output = {
 };
 
 let plugins = [
+  replace({
+    include: path.join(__dirname, './../node_modules/leaflet-kmz/**'),
+    "import JSZip from": "import"
+  }),
   alias({
     'jszip': path.join(__dirname, './../node_modules/jszip/dist/jszip.min.js'),
     // 'leaflet-kmz': path.join(__dirname, './../node_modules/leaflet-kmz/dist/leaflet-kmz-src.js'),
